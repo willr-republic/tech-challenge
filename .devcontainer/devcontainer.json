@@ -4,18 +4,24 @@
   "service": "app",
   "workspaceFolder": "/workspace",
 
-  "extensions": [
-    "dbaeumer.vscode-eslint",
-    "esbenp.prettier-vscode",
-    "ms-vscode.vscode-typescript-tslint-plugin",
-    "ms-azuretools.vscode-docker"
-  ],
-
-  "settings": {
-    "terminal.integrated.defaultProfile.linux": "bash"
-  },
+  "customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			"settings": {},
+			"extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "ms-vscode.vscode-typescript-tslint-plugin",
+        "ms-azuretools.vscode-docker"
+			]
+		}
+	},
 
   "postCreateCommand": "npm install && npm run start:dev",
-  "forwardPorts": [3000],
-  "remoteUser": "vscode"
+  "portsAttributes": {
+		"3000": {
+			"label": "Nest.js Server",
+			"onAutoForward": "notify"
+		}
+	}
 }
