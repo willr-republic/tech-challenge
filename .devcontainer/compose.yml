@@ -1,0 +1,25 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: .devcontainer/Dockerfile
+    volumes:
+      - .:/workspace
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+    command: bash -c "npm install && npm run start:dev"
+
+  postgres:
+    image: postgres:17.0
+    environment:
+      POSTGRES_USER: tech-challenge
+      POSTGRES_PASSWORD: tech-challenge
+      POSTGRES_DB: tech-challenge
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+volumes:
+  pgdata:
