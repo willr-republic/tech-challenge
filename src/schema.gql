@@ -1,0 +1,27 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Movie {
+  id: ID!
+  year: Int!
+  title: String!
+  director: Director!
+  actors: [Actor!]!
+}
+
+type Director {
+  id: ID!
+  name: String!
+  movies: [Movie!]!
+}
+
+type Actor {
+  id: ID!
+  name: String!
+  movies: [Movie!]!
+}
+
+type Query {
+  movies(limit: Int! = 10): [Movie!]!
+}

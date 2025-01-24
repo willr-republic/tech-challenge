@@ -27,9 +27,17 @@ export default tseslint.config(
   },
   {
     rules: {
+      '@typescript-eslint/explicit-member-accessibility': [
+        'error',
+        { accessibility: 'explicit' },
+      ],
+      '@typescript-eslint/interface-name-prefix': 'off',
+      '@typescript-eslint/explicit-function-return-type': 'off',
+      '@typescript-eslint/explicit-module-boundary-types': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
-      '@typescript-eslint/no-floating-promises': 'warn',
-      '@typescript-eslint/no-unsafe-argument': 'warn'
+      'import/no-unresolved': 'error',
+      'import/order': ['error', { 'newlines-between': 'always' }], // Enforce import order
+      'no-console': 'warn',
     },
   },
 );
